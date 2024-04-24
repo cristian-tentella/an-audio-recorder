@@ -16,11 +16,11 @@ fun App() {
 
     NavHost(navController = navController, startDestination = recorderRoute) {
         composable(route = recorderRoute) {
-            Recorder(onNavigateToRecorder = { navController.navigate(recorderRoute) })
+            Recorder(onNavigateToRecordings = { navController.navigate(recordingsRoute) })
         }
 
         composable(route = recordingsRoute) {
-            Recordings(onNavigateToRecordings = { navController.navigate(recordingsRoute) })
+            Recordings(onNavigateToRecorder = { navController.navigate(recorderRoute) })
         }
     }
 }
