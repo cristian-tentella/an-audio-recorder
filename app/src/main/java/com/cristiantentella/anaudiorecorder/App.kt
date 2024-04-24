@@ -27,11 +27,17 @@ fun App() {
 
     NavHost(navController = navController, startDestination = routes.recorder) {
         composable(route = routes.recorder) {
-            Recorder(onNavigateToRecordings = { navController.navigate(routes.recordings) }, recordingsDir)
+            Recorder(
+                onNavigateToRecordings = { navController.navigate(routes.recordings) },
+                recordingsDir
+            )
         }
 
         composable(route = routes.recordings) {
-            Recordings(onNavigateToRecorder = { navController.navigate(routes.recorder) }, recordingsDir)
+            Recordings(
+                onNavigateToRecorder = { navController.navigate(routes.recorder) },
+                recordingsDir
+            )
         }
     }
 }
