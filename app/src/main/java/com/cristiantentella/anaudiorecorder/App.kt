@@ -11,16 +11,18 @@ import com.cristiantentella.anaudiorecorder.recordings.Recordings
 fun App() {
     val navController = rememberNavController()
 
-    val recorderRoute = "recorder"
-    val recordingsRoute = "recordings"
+    val routes = object {
+        val recorder = "recorder"
+        val recordings = "recordings"
+    }
 
-    NavHost(navController = navController, startDestination = recorderRoute) {
-        composable(route = recorderRoute) {
-            Recorder(onNavigateToRecordings = { navController.navigate(recordingsRoute) })
+    NavHost(navController = navController, startDestination = routes.recorder) {
+        composable(route = routes.recorder) {
+            Recorder(onNavigateToRecordings = { navController.navigate(routes.recordings) })
         }
 
-        composable(route = recordingsRoute) {
-            Recordings(onNavigateToRecorder = { navController.navigate(recorderRoute) })
+        composable(route = routes.recordings) {
+            Recordings(onNavigateToRecorder = { navController.navigate(routes.recorder) })
         }
     }
 }
